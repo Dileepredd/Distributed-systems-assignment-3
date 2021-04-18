@@ -41,10 +41,7 @@ func main(){
 	ch = make(chan int)
 	go func() {
 		for {
-			select {
-			case request := <-ch:
-				ledger = request
-			}
+			ledger = <-ch
 		}
 	}()
 	wg.Add(3)
